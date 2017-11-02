@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PickerViewChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9HK-hR-fOa">
+                                <rect key="frame" x="0.0" y="20" width="375" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="kEs-5h-atb"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PA5-Db-vaS"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58W-cz-pEp">
+                                <rect key="frame" x="10" y="251" width="355" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="EsG-0g-8G2">
+                                <rect key="frame" x="0.0" y="282" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="531265217.56839198">
+                                    <!--2017-11-01 21:40:17 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="UVW-f7-1gh"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9HK-hR-fOa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="D1I-pP-ree"/>
+                            <constraint firstItem="EsG-0g-8G2" firstAttribute="top" secondItem="58W-cz-pEp" secondAttribute="bottom" constant="10" id="LaW-ov-Z9X"/>
+                            <constraint firstItem="58W-cz-pEp" firstAttribute="top" secondItem="9HK-hR-fOa" secondAttribute="bottom" constant="15" id="Rxd-uu-Evv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EsG-0g-8G2" secondAttribute="trailing" id="S1s-HZ-7TK"/>
+                            <constraint firstItem="9HK-hR-fOa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SaG-z3-4mU"/>
+                            <constraint firstItem="EsG-0g-8G2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cJy-Ki-fSf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="58W-cz-pEp" secondAttribute="trailing" constant="10" id="jKi-Qp-HYc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9HK-hR-fOa" secondAttribute="trailing" id="l8F-2W-j0b"/>
+                            <constraint firstItem="58W-cz-pEp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="wga-D3-lgd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="58W-cz-pEp" id="fTP-zm-Ud1"/>
+                        <outlet property="datePicker" destination="EsG-0g-8G2" id="HFQ-xa-UVD"/>
+                        <outlet property="pickerView" destination="9HK-hR-fOa" id="SLA-Ty-mQX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
+        </scene>
+    </scenes>
+</document>
