@@ -7,3 +7,13 @@
 //
 
 import Foundation
+class reservation {
+    
+    var date: Date
+    var partySize: Int
+    
+    init (date: Date, partySize: Int){
+        self.date = date
+        self.partySize = partySize
+    }
+}
