@@ -16,6 +16,7 @@
 		BBA2FAD61FB3B0E20047778F /* ReservationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2FAD51FB3B0E20047778F /* ReservationTests.swift */; };
 		BBA2FAE51FB3B4770047778F /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2FAE41FB3B4770047778F /* Reservation.swift */; };
 		BBA2FAE71FB3B4860047778F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2FAE61FB3B4860047778F /* Constants.swift */; };
+		BBA2FAE91FB3BB940047778F /* DataPersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2FAE81FB3BB940047778F /* DataPersistanceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		BBA2FAD71FB3B0E20047778F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBA2FAE41FB3B4770047778F /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		BBA2FAE61FB3B4860047778F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BBA2FAE81FB3BB940047778F /* DataPersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistanceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		BBA2FAE31FB3B4510047778F /* DataPersistance */ = {
 			isa = PBXGroup;
 			children = (
+				BBA2FAE81FB3BB940047778F /* DataPersistanceManager.swift */,
 			);
 			path = DataPersistance;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				BBA2FAE71FB3B4860047778F /* Constants.swift in Sources */,
 				BBA2FAC01FB3B0E20047778F /* ViewController.swift in Sources */,
 				BBA2FABE1FB3B0E20047778F /* AppDelegate.swift in Sources */,
+				BBA2FAE91FB3BB940047778F /* DataPersistanceManager.swift in Sources */,
 				BBA2FAE51FB3B4770047778F /* Reservation.swift in Sources */,
 				BBA2FAC61FB3B0E20047778F /* Reservation.xcdatamodeld in Sources */,
 			);

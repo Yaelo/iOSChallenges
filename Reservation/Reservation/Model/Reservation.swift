@@ -7,13 +7,15 @@
 //
 
 import Foundation
-class reservation {
+class Reservation {
     
     var date: Date
     var partySize: Int
+    var service: String
     
-    init (date: Date, partySize: Int){
+    init (date: Date, partySize: Int, service: String){
         self.date = date
         self.partySize = partySize
+        self.service = service
     }
 }
