@@ -427,11 +427,27 @@
                         <outlet property="priceLabel" destination="sAu-fb-xNH" id="1zw-El-ESi"/>
                         <outlet property="reserveButton" destination="guM-d8-7ox" id="JJj-Kh-yFN"/>
                         <outlet property="serviceLabel" destination="38S-b8-djx" id="5Is-qt-Q7X"/>
+                        <segue destination="kHp-ce-fNy" kind="show" identifier="ReservationSegue" id="Ntg-sz-TvH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvZ-5Q-0DQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1426" y="-109"/>
+            <point key="canvasLocation" x="1458" y="-419"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9Q9-Ad-JjC">
+            <objects>
+                <viewController id="kHp-ce-fNy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="16H-zU-ibr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="yOb-LK-dxH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1NL-aD-H0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="382"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f3K-ho-Fos">

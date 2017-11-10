@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BB9BCF411FB55EA7001F2E76 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9BCF401FB55EA7001F2E76 /* ScheduleViewController.swift */; };
+		BB9BCF431FB5D9AE001F2E76 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9BCF421FB5D9AE001F2E76 /* ReservationViewController.swift */; };
 		BBA2FABE1FB3B0E20047778F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2FABD1FB3B0E20047778F /* AppDelegate.swift */; };
 		BBA2FAC01FB3B0E20047778F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2FABF1FB3B0E20047778F /* ViewController.swift */; };
 		BBA2FAC31FB3B0E20047778F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBA2FAC11FB3B0E20047778F /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		BB9BCF401FB55EA7001F2E76 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		BB9BCF421FB5D9AE001F2E76 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
 		BBA2FABA1FB3B0E20047778F /* Reservation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reservation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA2FABD1FB3B0E20047778F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA2FABF1FB3B0E20047778F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				BBA2FABF1FB3B0E20047778F /* ViewController.swift */,
 				BBA2FAC11FB3B0E20047778F /* Main.storyboard */,
 				BBA2FAC91FB3B0E20047778F /* LaunchScreen.storyboard */,
+				BB9BCF421FB5D9AE001F2E76 /* ReservationViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				BBA2FAE71FB3B4860047778F /* Constants.swift in Sources */,
 				BBA2FAC01FB3B0E20047778F /* ViewController.swift in Sources */,
 				BBA2FABE1FB3B0E20047778F /* AppDelegate.swift in Sources */,
+				BB9BCF431FB5D9AE001F2E76 /* ReservationViewController.swift in Sources */,
 				BBA2FAE91FB3BB940047778F /* DataPersistanceManager.swift in Sources */,
 				BBA2FAE51FB3B4770047778F /* Reservation.swift in Sources */,
 				BB9BCF411FB55EA7001F2E76 /* ScheduleViewController.swift in Sources */,

@@ -40,7 +40,7 @@ class DataPersistanceManager {
     func getReservation(reservation: Reservation) -> Reservation?{
         let context = getContext()
         let fetchRequest: NSFetchRequest<ReservationEntity> = ReservationEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "date == %@ AND service == %@", reservation.date.description, reservation.service)
+        fetchRequest.predicate = NSPredicate(format: "\(dataConstants.date) == %@ AND \(dataConstants.service) == %@", reservation.date as CVarArg, reservation.service)
         do{
             let searchResults = try context.fetch(fetchRequest)
             for foundReservation in searchResults as [NSManagedObject]{
@@ -50,6 +50,7 @@ class DataPersistanceManager {
                 return Reservation(date: date, partySize: partyS, service: service)
             }
         }catch {
+            print("hubo un problema")
             print(error.localizedDescription)
         }
         return nil
@@ -75,7 +76,7 @@ class DataPersistanceManager {
     func deleteReservations(reservation: Reservation){
         let context = getContext()
         let fetchRequest: NSFetchRequest<ReservationEntity> = ReservationEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "date == %@ AND service == %@", reservation.date.description, reservation.service)
+        fetchRequest.predicate = NSPredicate(format: "date == %@ AND service == %@", reservation.date as CVarArg, reservation.service)
         do{
             let searchResults = try context.fetch(fetchRequest)
             for result in searchResults as [NSManagedObject]{

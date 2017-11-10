@@ -33,6 +33,7 @@ class ScheduleViewController: UIViewController {
     var service: Services?
     var selectedDay: Bool = false
     var selectedHour: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if service != nil{
@@ -67,7 +68,7 @@ class ScheduleViewController: UIViewController {
         var nextDay = Date()
         for _ in 0..<resultantDays.day!{
             nextDay = calendar.date(byAdding: .day, value: 1, to: currentDay)!
-            print(nextDay)
+            //print(nextDay)
             days.append(nextDay)
             currentDay = nextDay
         }
@@ -83,10 +84,27 @@ class ScheduleViewController: UIViewController {
         pickerViewArea.isHidden = true
     }
     @IBAction func doneAction(_ sender: Any) {
-        performSegue(withIdentifier: "asdasd", sender: nil)
+        performSegue(withIdentifier: Constants.ReservationSegue, sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            print("lala")
+        
+        let partySize = partySizeAvailable[pickerView.selectedRow(inComponent: 0)]
+        let row = collectionViewDays.indexPathsForSelectedItems?.first?.row
+        let hourRow = collectionViewHours.indexPathsForSelectedItems?.first?.row
+        let actualDate = days[row!]
+        let selectedHour = hours[hourRow!]
+        var components = Calendar.current.dateComponents([.day, .month, .year], from: actualDate)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd hh:mm a"
+        let fullDate = dateFormatter.date(from: "\(components.year!)/\(components.month!)/\(components.day!) \(selectedHour)")
+        let reservation = Reservation.init(date: fullDate!, partySize: partySize, service: (service?.rawValue)!)
+        let persistanceManager = DataPersistanceManager()
+        persistanceManager.insertReservations(reservation: reservation)
+        let backItem = UIBarButtonItem()
+        navigationController?.navigationItem.backBarButtonItem?.action = #selector(popViews)
+    }
+    @objc func popViews(){
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 extension ScheduleViewController: UIPickerViewDelegate, UIPickerViewDataSource{
@@ -178,7 +196,7 @@ extension ScheduleViewController{
         thisHours.append("9:00 AM")
         thisHours.append("10:00 AM")
         thisHours.append("11:00 AM")
-        thisHours.append("12:00 M")
+        thisHours.append("12:00 PM")
         thisHours.append("1:00 PM")
         thisHours.append("2:00 PM")
         thisHours.append("3:00 PM")

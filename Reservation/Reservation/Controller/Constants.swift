@@ -9,6 +9,8 @@
 import Foundation
 struct Constants {
     static let scheduleSegue = "scheduleSegue"
+    static let ReservationSegue = "ReservationSegue"
+    
     static let SwedishMassage = "Swedish Massage"
     static let DeepTissueMassage = "Deep Tissue Massage"
     static let SportMassage = "Sport Massage"
