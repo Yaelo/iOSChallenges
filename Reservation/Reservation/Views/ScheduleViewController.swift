@@ -37,7 +37,7 @@ class ScheduleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if service != nil{
-            for thisService in getAvailableServices() {
+            for thisService in ScheduleViewController.getAvailableServices() {
                 if thisService.service == service {
                     serviceLabel.text = thisService.service.rawValue
                     hoursLabel.text = thisService.time
@@ -68,7 +68,6 @@ class ScheduleViewController: UIViewController {
         var nextDay = Date()
         for _ in 0..<resultantDays.day!{
             nextDay = calendar.date(byAdding: .day, value: 1, to: currentDay)!
-            //print(nextDay)
             days.append(nextDay)
             currentDay = nextDay
         }
@@ -84,41 +83,38 @@ class ScheduleViewController: UIViewController {
         pickerViewArea.isHidden = true
     }
     @IBAction func doneAction(_ sender: Any) {
-        performSegue(withIdentifier: Constants.ReservationSegue, sender: nil)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let partySize = partySizeAvailable[pickerView.selectedRow(inComponent: 0)]
-        let row = collectionViewDays.indexPathsForSelectedItems?.first?.row
-        let hourRow = collectionViewHours.indexPathsForSelectedItems?.first?.row
-        let actualDate = days[row!]
-        let selectedHour = hours[hourRow!]
-        var components = Calendar.current.dateComponents([.day, .month, .year], from: actualDate)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd hh:mm a"
-        let fullDate = dateFormatter.date(from: "\(components.year!)/\(components.month!)/\(components.day!) \(selectedHour)")
-        let reservation = Reservation.init(date: fullDate!, partySize: partySize, service: (service?.rawValue)!)
-        let persistanceManager = DataPersistanceManager()
-        persistanceManager.insertReservations(reservation: reservation)
-        let backItem = UIBarButtonItem()
-        navigationController?.navigationItem.backBarButtonItem?.action = #selector(popViews)
-    }
-    @objc func popViews(){
-        navigationController?.popToRootViewController(animated: true)
+        if let destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.ReservationViewController) as? ReservationViewController, let navController = self.navigationController{
+            
+            let partySize = partySizeAvailable[pickerView.selectedRow(inComponent: 0)]
+            let row = collectionViewDays.indexPathsForSelectedItems?.first?.row
+            let hourRow = collectionViewHours.indexPathsForSelectedItems?.first?.row
+            let actualDate = days[row!]
+            let selectedHour = hours[hourRow!]
+            var components = Calendar.current.dateComponents([.day, .month, .year], from: actualDate)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy/MM/dd hh:mm a"
+            let fullDate = dateFormatter.date(from: "\(components.year!)/\(components.month!)/\(components.day!) \(selectedHour)")
+            let reservation = Reservation.init(date: fullDate!, partySize: partySize, service: (service?.rawValue)!)
+            let persistanceManager = DataPersistanceManager()
+            persistanceManager.insertReservations(reservation: reservation)
+            
+            navController.popViewController(animated: false)
+            navController.pushViewController(destinationViewController, animated: true)
+        }
+        //performSegue(withIdentifier: Constants.ReservationSegue, sender: nil)
     }
 }
 extension ScheduleViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return partySizeAvailable.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(partySizeAvailable[row])"
     }
-    
 }
 extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -182,7 +178,7 @@ extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewData
     }
 }
 extension ScheduleViewController{
-    func getAvailableServices() -> [ServicesData]{
+    static func getAvailableServices() -> [ServicesData]{
         var allServices: [ServicesData] = []
         allServices.append(ServicesData.init(service: Services.SwedishMassage, time: "1H", price: 120, description: "Swedish massage is the most common and best-known type of massage in the West.", imageName: Constants.SwedishMassage))
         allServices.append(ServicesData.init(service: Services.DeepTissueMassage, time: "1H", price: 50, description: "Deep tissue massage is aimed at the deeper tissue structures of the muscle and fascia, also called connective tissue",imageName: Constants.DeepTissueMassage))

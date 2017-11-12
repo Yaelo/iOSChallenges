@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB02A0451FB7B8EC00511E24 /* ReservationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB02A0441FB7B8EC00511E24 /* ReservationDelegate.swift */; };
 		BB9BCF411FB55EA7001F2E76 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9BCF401FB55EA7001F2E76 /* ScheduleViewController.swift */; };
 		BB9BCF431FB5D9AE001F2E76 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9BCF421FB5D9AE001F2E76 /* ReservationViewController.swift */; };
+		BB9BCF461FB5E86F001F2E76 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9BCF441FB5E86F001F2E76 /* ReservationTableViewCell.swift */; };
+		BB9BCF471FB5E86F001F2E76 /* ReservationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB9BCF451FB5E86F001F2E76 /* ReservationTableViewCell.xib */; };
 		BBA2FABE1FB3B0E20047778F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2FABD1FB3B0E20047778F /* AppDelegate.swift */; };
 		BBA2FAC01FB3B0E20047778F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2FABF1FB3B0E20047778F /* ViewController.swift */; };
 		BBA2FAC31FB3B0E20047778F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBA2FAC11FB3B0E20047778F /* Main.storyboard */; };
@@ -32,8 +35,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB02A0441FB7B8EC00511E24 /* ReservationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDelegate.swift; sourceTree = "<group>"; };
 		BB9BCF401FB55EA7001F2E76 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		BB9BCF421FB5D9AE001F2E76 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
+		BB9BCF441FB5E86F001F2E76 /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
+		BB9BCF451FB5E86F001F2E76 /* ReservationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReservationTableViewCell.xib; sourceTree = "<group>"; };
 		BBA2FABA1FB3B0E20047778F /* Reservation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reservation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA2FABD1FB3B0E20047778F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA2FABF1FB3B0E20047778F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB02A0461FB7B8F500511E24 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				BB02A0441FB7B8EC00511E24 /* ReservationDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		BBA2FAB11FB3B0E20047778F = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +126,7 @@
 		BBA2FAE01FB3B33B0047778F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BB02A0461FB7B8F500511E24 /* Delegates */,
 				BBA2FAE31FB3B4510047778F /* DataPersistance */,
 				BBA2FAE61FB3B4860047778F /* Constants.swift */,
 			);
@@ -126,6 +141,8 @@
 				BBA2FAC11FB3B0E20047778F /* Main.storyboard */,
 				BBA2FAC91FB3B0E20047778F /* LaunchScreen.storyboard */,
 				BB9BCF421FB5D9AE001F2E76 /* ReservationViewController.swift */,
+				BB9BCF441FB5E86F001F2E76 /* ReservationTableViewCell.swift */,
+				BB9BCF451FB5E86F001F2E76 /* ReservationTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +248,7 @@
 			files = (
 				BBA2FACB1FB3B0E20047778F /* LaunchScreen.storyboard in Resources */,
 				BBA2FAC81FB3B0E20047778F /* Assets.xcassets in Resources */,
+				BB9BCF471FB5E86F001F2E76 /* ReservationTableViewCell.xib in Resources */,
 				BBA2FAC31FB3B0E20047778F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA2FAE71FB3B4860047778F /* Constants.swift in Sources */,
+				BB02A0451FB7B8EC00511E24 /* ReservationDelegate.swift in Sources */,
 				BBA2FAC01FB3B0E20047778F /* ViewController.swift in Sources */,
 				BBA2FABE1FB3B0E20047778F /* AppDelegate.swift in Sources */,
 				BB9BCF431FB5D9AE001F2E76 /* ReservationViewController.swift in Sources */,
@@ -257,6 +276,7 @@
 				BBA2FAE51FB3B4770047778F /* Reservation.swift in Sources */,
 				BB9BCF411FB55EA7001F2E76 /* ScheduleViewController.swift in Sources */,
 				BBA2FAC61FB3B0E20047778F /* Reservation.xcdatamodeld in Sources */,
+				BB9BCF461FB5E86F001F2E76 /* ReservationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

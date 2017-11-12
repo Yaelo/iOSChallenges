@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     
     let services = [Services.SwedishMassage, Services.DeepTissueMassage, Services.SportMassage , Services.Reflexologi , Services.TriggerPointTherapy]
@@ -25,7 +26,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func showReservationsAction(_ sender: Any) {
+        if let destinationViewController = storyboard?.instantiateViewController(withIdentifier: Constants.ReservationViewController){
+            navigationController?.pushViewController(destinationViewController, animated: true)
+        }
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource,UITableViewDelegate {
