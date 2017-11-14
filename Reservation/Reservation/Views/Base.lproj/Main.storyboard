@@ -26,25 +26,27 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="tS3-BD-43O"/>
                                 </connections>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="1WO-aO-kQ1">
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1WO-aO-kQ1">
                                 <rect key="frame" x="168" y="370" width="39" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pageControl>
-                            <tableView clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Zh-XT-Rp9">
-                                <rect key="frame" x="27" y="411" width="316" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Zh-XT-Rp9">
+                                <rect key="frame" x="30" y="412" width="315" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Rer-VH-hHc"/>
+                                </constraints>
                                 <color key="separatorColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="SN5-Iv-PAH">
-                                        <rect key="frame" x="0.0" y="28" width="316" height="45"/>
+                                        <rect key="frame" x="0.0" y="28" width="315" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SN5-Iv-PAH" id="O32-Bd-ccn">
-                                            <rect key="frame" x="0.0" y="0.0" width="316" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lg-me-juB">
-                                                    <rect key="frame" x="8" y="8" width="300" height="28.5"/>
+                                                    <rect key="frame" x="8" y="8" width="299" height="28.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -64,25 +66,37 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="oh4-1F-eCR"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="offertLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8x2-kQ-dwH">
-                                <rect key="frame" x="42" y="125" width="96" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="offertLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8x2-kQ-dwH">
+                                <rect key="frame" x="30" y="114" width="195" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbY-f0-E1I">
-                                <rect key="frame" x="42" y="264" width="66" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbY-f0-E1I">
+                                <rect key="frame" x="30" y="260" width="69" height="35"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Reserve"/>
+                                <connections>
+                                    <action selector="reserveButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pUQ-Gc-E99"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8x2-kQ-dwH" secondAttribute="trailing" constant="150" id="BWh-If-Nam"/>
+                            <constraint firstItem="8x2-kQ-dwH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Sh0-Yo-Pq7"/>
+                            <constraint firstItem="UbY-f0-E1I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="T6m-15-WUR"/>
                             <constraint firstItem="h3W-MS-XKt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WAi-2w-uHw"/>
+                            <constraint firstItem="8x2-kQ-dwH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="WDy-VO-kji"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h3W-MS-XKt" secondAttribute="bottom" id="ghH-Zs-S4r"/>
+                            <constraint firstItem="0Zh-XT-Rp9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="jfN-9r-pe0"/>
                             <constraint firstItem="h3W-MS-XKt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kbi-ra-wlE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Zh-XT-Rp9" secondAttribute="trailing" constant="30" id="qcO-0W-vSe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h3W-MS-XKt" secondAttribute="trailing" id="sJC-V4-iWZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Zh-XT-Rp9" secondAttribute="bottom" constant="5" id="skV-aN-mMx"/>
+                            <constraint firstItem="0Zh-XT-Rp9" firstAttribute="top" secondItem="UbY-f0-E1I" secondAttribute="bottom" constant="117" id="uqG-4h-PNT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -94,6 +108,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="offertLabel" destination="8x2-kQ-dwH" id="n8p-ue-XYt"/>
+                        <outlet property="pageControl" destination="1WO-aO-kQ1" id="rRh-u6-Fwf"/>
+                        <outlet property="reserveButton" destination="UbY-f0-E1I" id="Luc-Ti-bha"/>
                         <outlet property="scrollView" destination="h3W-MS-XKt" id="gkp-yw-OcG"/>
                         <outlet property="tableView" destination="0Zh-XT-Rp9" id="B74-cj-HOY"/>
                         <segue destination="GZg-e8-NEe" kind="show" identifier="scheduleSegue" id="Y60-eT-fvy"/>

@@ -20,8 +20,11 @@ class ReservationViewController: UIViewController, ReservationDelegate {
         let persistanceManager = DataPersistanceManager()
         reservations = persistanceManager.getAllReservations()
         prepareCells()
+        setTitle()
     }
-
+    fileprivate func setTitle(){
+        self.navigationController?.title = "My Reservations"
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

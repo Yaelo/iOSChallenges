@@ -52,8 +52,11 @@ class ScheduleViewController: UIViewController {
         prepareDates()
         hours = getHours()
         collectionViewHours.layer.cornerRadius = 15.0
+        setTitle()
     }
-
+    fileprivate func setTitle(){
+        self.navigationController?.title = "SPA Service"
+    }
     func prepareDates(){
         let calendar = Calendar.current
         var components = calendar.dateComponents([.day, .month], from: Date.init())
