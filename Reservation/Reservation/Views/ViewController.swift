@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollView: InfiniteScrolliew!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var offertLabel: UILabel!
@@ -99,9 +99,6 @@ extension ViewController: UITableViewDataSource,UITableViewDelegate {
     }
 }
 extension ViewController: UIScrollViewDelegate{
-    
-    
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageWidth:CGFloat = scrollView.frame.width
         let contentOffset: CGFloat = self.scrollView.contentOffset.x
@@ -126,16 +123,6 @@ extension ViewController: UIScrollViewDelegate{
         service = offers[indexPage].service
         offertLabel.layer.cornerRadius = 30.0
     }
-//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        let pageWidth:CGFloat = scrollView.frame.width
-//        let totalPages = scrollView.subviews.count
-//        let maxWidth: CGFloat = pageWidth * CGFloat(totalPages)
-//        let contentOffset: CGFloat = self.scrollView.contentOffset.x
-//        let currentPage: CGFloat = floor((contentOffset-pageWidth/2)/pageWidth)+1
-//        let slideToX = (currentPage) >= maxWidth ? 0 : currentPage
-//
-//        //self.scrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:self.scrollView.frame.height), animated: true)
-//    }
     func getOffers() -> [ServicesOfferts]{
         var offers: [ServicesOfferts] = []
         offers.append(ServicesOfferts(service: .DeepTissueMassage, offert: "10% off \(Services.DeepTissueMassage) April 10 - 30"))
