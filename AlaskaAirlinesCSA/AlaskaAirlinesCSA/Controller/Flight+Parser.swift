@@ -26,7 +26,7 @@ extension Flight{
         }
         return flights.sorted()
     }
-    static func getLocalFromUTCFromString(date: String) -> Date?{
+    static func getDateFromString(date: String) -> Date?{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
