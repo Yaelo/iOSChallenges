@@ -19,8 +19,8 @@ extension Flight{
                 let UTCOffset = $0[Constants.UTCDestinationOffset] as! String
                 let schedArrivalTime = $0[Constants.SchedArrTime] as! String
                 let estimatedArrivalTime = $0[Constants.EstArrTime] as! String
-                let schedArrivalDate = getLocalFromUTCFromString(date: schedArrivalTime)!
-                let estimatedDate = getLocalFromUTCFromString(date: estimatedArrivalTime)!
+                let schedArrivalDate = getDateFromString(date: schedArrivalTime)!
+                let estimatedDate = getDateFromString(date: estimatedArrivalTime)!
                 flights.append(Flight(flightId: id, originCity: origin, destinationCity: destination, schedArrivalTime: schedArrivalDate, estimatedArrivalTime: estimatedDate, UTCDestinationOffset: UTCOffset))
             }
         }
