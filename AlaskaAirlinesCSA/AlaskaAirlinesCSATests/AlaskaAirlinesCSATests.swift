@@ -22,7 +22,7 @@ class AlaskaAirlinesCSATests: XCTestCase {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.timeZone = TimeZone(abbreviation: "EST")
-        let myDate = Flight.getLocalFromUTCFromString(date: myDateString)!
+        let myDate = Flight.getDateFromString(date: myDateString)!
         XCTAssert(dateFormatter.string(from: myDate) == "2017-11-17 00:53:00", "It's not the specified date")
     }
     override func setUp() {
