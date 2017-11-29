@@ -8,24 +8,29 @@
 
 import Foundation
 extension Flight{
-    static func flightParser(jsonData: [[String: Any]]) -> [Flight]{
+    static func flightParser(jsonData: [[String: Any]], dest: String) -> [Flight]{
         var flights: [Flight] = []
         let dateFormatter = DateFormatter()
         jsonData.forEach {
-            let id = $0[Constants.flightID] as! String
-            let origin = $0[Constants.Orig] as! String
             let destination = $0[Constants.Dest] as! String
-            let UTCOffset = $0[Constants.UTCDestinationOffset] as! String
-            let schedArrivalTime = $0[Constants.SchedArrTime] as! String
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-            dateFormatter.timeZone = TimeZone(identifier: "UTC")
-            let estimatedArrivalTime = $0[Constants.EstArrTime] as! String
-            //dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            dateFormatter.timeZone = TimeZone.current
-            let schedArrivalDate = dateFormatter.date(from: schedArrivalTime)!
-            let estimatedDate = dateFormatter.date(from: estimatedArrivalTime)!
-            flights.append(Flight(flightId: id, originCity: origin, destinationCity: destination, schedArrivalTime: schedArrivalDate, estimatedArrivalTime: estimatedDate, UTCDestinationOffset: UTCOffset))
+            if destination.uppercased() == dest.uppercased() {
+                let id = $0[Constants.flightID] as! String
+                let origin = $0[Constants.Orig] as! String
+                let UTCOffset = $0[Constants.UTCDestinationOffset] as! String
+                let schedArrivalTime = $0[Constants.SchedArrTime] as! String
+                let estimatedArrivalTime = $0[Constants.EstArrTime] as! String
+                let schedArrivalDate = getLocalFromUTCFromString(date: schedArrivalTime)!
+                let estimatedDate = getLocalFromUTCFromString(date: estimatedArrivalTime)!
+                flights.append(Flight(flightId: id, originCity: origin, destinationCity: destination, schedArrivalTime: schedArrivalDate, estimatedArrivalTime: estimatedDate, UTCDestinationOffset: UTCOffset))
+            }
         }
         return flights.sorted()
+    }
+    static func getLocalFromUTCFromString(date: String) -> Date?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        let myDate = dateFormatter.date(from: date)
+        return myDate
     }
 }

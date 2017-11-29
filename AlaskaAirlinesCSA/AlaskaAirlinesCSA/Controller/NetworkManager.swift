@@ -22,7 +22,7 @@ final class NetworkManager {
                     do{
                         if let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [[String: Any]]{
                             DispatchQueue.main.async {
-                                let flights = Flight.flightParser(jsonData: jsonResponse)
+                                let flights = Flight.flightParser(jsonData: jsonResponse, dest: airportCode)
                                 self?.delegate?.didDownloadedFlights(DownloadedFlights: flights)
                             }
                         }

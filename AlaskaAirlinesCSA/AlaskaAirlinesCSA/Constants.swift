@@ -20,6 +20,8 @@ struct Constants {
     static let UTCDestinationOffset = "DestZuluOffset"
 }
 struct testConstants{
+    static let UCTdateString = "2017-11-17T05:53:00"
+    static let ESTTime = "2017-11-17T00:53:00"
     static let jsonString = """
 [
     {

@@ -27,9 +27,8 @@ class TableViewCell: UITableViewCell {
         flightNumberLabel.text = flight.flightId
         airportCodeLabel.text = flight.originCity
         let dateFormatter = DateFormatter()
-        print(flight.estimatedArrivalTime.description(with: Locale.current))
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
+        dateFormatter.timeZone = TimeZone.current
         arrivalTimeLabel.text = dateFormatter.string(from: flight.estimatedArrivalTime)
         //arrivalTimeLabel.text = flight.estimatedArrivalTime.description
         self.backgroundColor = color % 2 == 0 ? UIColor.white : UIColor.lightGray
