@@ -23,7 +23,10 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func fillCell(pass: Pass){
-        riseTimeLabel.text = pass.riseTime
+        let dateFormmater = DateFormatter()
+        dateFormmater.dateStyle = .medium
+        dateFormmater.dateFormat = "yyyy-MMM-dd HH:mm'hrs'"
+        riseTimeLabel.text = dateFormmater.string(from: Date(timeIntervalSince1970: Double(pass.riseTime)!))
         durationLabel.text = pass.duration
     }
 }
