@@ -11,10 +11,15 @@ import XCTest
 
 class ISSP_ChallengeTests: XCTestCase {
     func testParser(){
-        let myData = stubs.jsonResponse.data(using: .utf8)!
+        let myData = stubs.jsonResponseStub.data(using: .utf8)!
         let jsonData = try! JSONSerialization.jsonObject(with: myData, options: .allowFragments) as! [String: Any]
         let passes = Pass.parseJson(jsonData: jsonData)
         XCTAssertTrue(Int(passes.first!.duration)! == 599, "Thats not the duration")
+    }
+    func testRiseTimeDate(){
+        let riseTime = stubs.riseTimeStub
+        let stringDate = TableViewCell.getDateFormattedString(riseTime)
+        XCTAssertTrue(stringDate == "2017-Dec-07 18:28 hrs", "Thats not the date")
     }
     override func setUp() {
         super.setUp()

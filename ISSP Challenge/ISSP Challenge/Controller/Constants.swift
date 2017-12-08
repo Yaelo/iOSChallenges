@@ -15,7 +15,8 @@ struct Constants{
 }
 struct stubs{
     static let urlStub = "http://api.open-notify.org/iss-pass.json?lat=37.785834&lon=-122.406417"
-    static let jsonResponse =
+    static let riseTimeStub = "1512689296"
+    static let jsonResponseStub =
     """
 {
   "message": "success",

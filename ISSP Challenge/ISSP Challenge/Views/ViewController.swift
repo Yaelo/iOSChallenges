@@ -8,9 +8,11 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
+    @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     let locationManager = CLLocationManager()
     var passes: [Pass] = []
@@ -19,6 +21,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 75.0
+        prepareLocationManager()
+        prepareMapkit()
+    }
+    func prepareLocationManager(){
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled(){
             locationManager.delegate = self
@@ -26,15 +32,45 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
     }
+    func prepareMapkit(){
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        longPressGesture.minimumPressDuration = 1.0
+        map.addGestureRecognizer(longPressGesture)
+    }
+    @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer){
+        if gestureRecognizer.state != .began { return }
+        let touchPoint = gestureRecognizer.location(in: map)
+        let touchMapCoord = map.convert(touchPoint, toCoordinateFrom: map)
+        let pointAnnotation = MKPointAnnotation()
+        pointAnnotation.coordinate = touchMapCoord
+        updateAnotation(touchMapCoord)
+        newNetworkRequest(lat: String(pointAnnotation.coordinate.latitude), long: String(pointAnnotation.coordinate.longitude))
+        updateMap(lat: pointAnnotation.coordinate.latitude, long: pointAnnotation.coordinate.longitude)
+    }
+    func newNetworkRequest(lat: String, long: String){
+        let networkManager = NetworkManager()
+        networkRequest.append(networkManager)
+        networkManager.delegate = self
+        networkManager.getSteps(lat: lat, long: long)
+    }
+    func updateMap(lat: CLLocationDegrees, long: CLLocationDegrees){
+        let center = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        self.map.setRegion(region, animated: true)
+    }
+    func updateAnotation(_ coords: CLLocationCoordinate2D){
+        let pointAnnotation = MKPointAnnotation()
+        pointAnnotation.coordinate = coords
+        map.removeAnnotations(map.annotations)
+        map.addAnnotation(pointAnnotation)
+    }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             print("-----------")
             print(location.coordinate)
-            //coordLbl.text = "locations = \(location.coordinate.latitude) \(location.coordinate.longitude)"
-            let networkManager = NetworkManager()
-            networkRequest.append(networkManager)
-            networkManager.delegate = self
-            networkManager.getSteps(lat: String(location.coordinate.latitude), long: String(location.coordinate.longitude))
+            newNetworkRequest(lat: String(location.coordinate.latitude), long: String(location.coordinate.longitude))
+            updateMap(lat: location.coordinate.latitude, long: location.coordinate.longitude)
+            updateAnotation(location.coordinate)
         }
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -74,6 +110,7 @@ extension ViewController: NetworkManagerDelegate{
             print($0)
         }
         tableView.reloadData()
+        print("-----data reloaded-----")
     }
 }
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
@@ -83,7 +120,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         cell.fillCell(pass: passes[indexPath.row])
-        cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.white : UIColor.lightGray
+        cell.backgroundColor = indexPath.row % 2 != 0 ? UIColor.white : UIColor.lightGray
         return cell
     }
 }
